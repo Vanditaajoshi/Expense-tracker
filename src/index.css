@@ -1,0 +1,23 @@
+body {
+        background-color: rgb(199, 238, 226);
+        color: white; 
+                margin: 0;
+        font-family: Arial, sans-serif; 
+};
+
+.header {
+        position: fixed;
+        top: 0;
+        width: 0%;
+        margin-right: 0px;
+   
+} 
+.login-container {
+        margin: 20px !important;
+        padding: 15px !important;
+      }
+      
+           
+       
+      
+            

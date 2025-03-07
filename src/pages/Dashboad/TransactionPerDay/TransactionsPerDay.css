@@ -1,0 +1,92 @@
+/* Root styles for both themes */
+:root {
+  --bg-color: #292323a2;
+  --card-bg: #ffffff9a;
+  --text-color: #000;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --card-bg: #e4e2e2
+}
+
+/* Main container */
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.styles\.transactions.css-1syrhit-MuiPaper-root {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 45%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Chart Container */
+.chartContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Make sure it adapts */
+  max-width: 800px; /* Adjust based on layout */
+  height: 400px; /* Ensures consistent height */
+  margin: auto;
+  background-color: var(--card-bg); /* Match card background */
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Styling the Canvas */
+.chartContainer canvas {
+  width: 100% !important;  /* Ensures full width */
+  height: auto !important; /* Ensures full height */
+  
+}
+
+/* Card Wrapper */
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  align-items: center; /* Center cards */
+}
+
+
+/* Cards */
+.card {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.styles\.transactions.css-1syrhit-MuiPaper-root {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cardWrapper {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2px;
+  }
+
+  .chartContainer {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cardWrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
