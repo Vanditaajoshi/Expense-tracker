@@ -7,8 +7,6 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import jsPDF from "jspdf";
-import autoTable from "jspdf-autotable";
 import { useAppContext } from "AppContext";
 import { toast } from "react-toastify";
 
@@ -23,21 +21,6 @@ export default function AllExpenses() {
   const { incomeObject } = useAppContext();
   const { income, setIncome } = incomeObject;
 
-  const downloadPDF = () => {
-    const doc = new jsPDF();
-    doc.text("Expense Report 🧾", 20, 10);
-
-    const tableColumn = ["Expense Name", "Amount (₹)"];
-    const tableRows = expenses.map((e) => [e.expenseName, `₹${e.amount}`]);
-
-    autoTable(doc, {
-      head: [tableColumn],
-      body: tableRows,
-    });
-
-    doc.save("Expense_Report.pdf");
-    toast.success("PDF Downloaded Successfully 🧾🔥");
-  };
 
   const data = expenses.map((e) => ({
     name: e.expenseName,
@@ -49,7 +32,7 @@ export default function AllExpenses() {
       <input
         type="number"
         placeholder="Enter Income Amount 💰"
-        className="p-3 border rounded-md outline-none w-full text-center"
+        className="p-3 border rounded-md outline-none w-full text-center text-black"
         value={income}
         onChange={(e) => setIncome(parseFloat(e.target.value))}
       />
@@ -73,13 +56,6 @@ export default function AllExpenses() {
           }}
         >
           Reset Income 🔄
-        </button>
-
-        <button
-          className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg w-full"
-          onClick={downloadPDF}
-        >
-          Download PDF 🧾
         </button>
       </div>
 

@@ -61,7 +61,7 @@ function WalletOptions() {
       </div>
 
       {dropdownOpen && (
-        <div className="absolute bg-white shadow-md border rounded-md w-[180px] mt-2 z-10">
+        <div className="absolute bg-white text-black shadow-md border rounded-md w-[180px] mt-2 z-10">
           {walletOptions.map((wallet, index) => (
             <div
               key={index}

@@ -1,70 +1,62 @@
-import { useState, useMemo } from "react";
-import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
-import { ColorModeContext } from "./ColorModeContext";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./Header";
-import SideMenu from "./components/SideMenu";
-import Settings from "./pages/Settings/Settings";
-import Profile from "./pages/Categories/Profile";
-import Dashboad from "pages/Dashboad/Dashboad";
-import Report from "pages/Categories/Report";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { AppProvider } from "AppContext";
-function App() {
-  const [mode, setMode] = useState<"light" | "dark">("light");
+import NavBar from "pages/Expense/NavBar";
+import Report from "pages/Expense/Report";
+import Categories from "pages/Categories/Categories";
+import Setting from "pages/Expense/Setting";
+import Expense from "pages/Expense/Expense";
+import Register from "components/Register";
+import Dashboard from "pages/Expense/Dashboard";
+import Pages from "pages/Expense/Pages";
+import Login from "components/login";
 
-  const colorMode = useMemo(
-    () => ({
-      toggleColorMode: () => {
-        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
-      },
-      mode,
-    }),
-    [mode]
-  );
+const App: React.FC = () => {
+  const [categories, setCategories] = useState<{ name: string; type: "Income" | "Expense" }[]>([]);
 
-  const theme = useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode,
-          ...(mode === "light"
-            ? {
-                background: {
-                  default: "rgba(156, 231, 232, 0.37)",
-                  paper: "rgb(241, 234, 234)",
-                },
-              }
-            : {
-                background: {
-                  default: "#111010",
-                  paper: "#1e1e1e",
-                },
-              }),
-        },
-      }),
-    [mode]
-  );
+  // Load categories from localStorage
+  useEffect(() => {
+    try {
+      const storedCategories = localStorage.getItem("categories");
+      if (storedCategories) {
+        setCategories(JSON.parse(storedCategories));
+      }
+    } catch (error) {
+      console.error("Error parsing categories:", error);
+      setCategories([]);
+    }
+  }, []);
 
   return (
-    <ColorModeContext.Provider value={colorMode}>
-  <ThemeProvider theme={theme}>
-    <CssBaseline />
-    <AppProvider> {/* 🎯 This will fix the whole Context Error */}
-      <Router>
+    <Router>
+      <AppProvider>
         <Routes>
-          <Route path="/dashboad" element={<Dashboad />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/categories" element={<Profile />} />
-          <Route path="/transactions" element={<Profile />} />
-          <Route path="/budget" element={<Dashboad />} />
-          <Route path="/report" element={<Report />} />
-        </Routes>
-      </Router>
-    </AppProvider>
-  </ThemeProvider>
-</ColorModeContext.Provider>
+          {/* No Navbar on Login & Register */}
+          <Route path="/" element={<Navigate to="/login" />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
 
+          {/* Navbar included on all other pages */}
+          <Route
+            path="/*"
+            element={
+              <>
+                <NavBar />
+                <Routes>
+                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/pages" element={<Pages />} />
+                  <Route path="/report" element={<Report />} />
+                  <Route path="/categories" element={<Categories />} />
+                  <Route path="/setting" element={<Setting />} />
+                  <Route path="/expense" element={<Expense categories={categories} />} />
+                </Routes>
+              </>
+            }
+          />
+        </Routes>
+      </AppProvider>
+    </Router>
   );
-}
+};
 
 export default App;

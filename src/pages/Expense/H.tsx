@@ -12,7 +12,7 @@ export default function H() {
     allExpenses: { expenses, setExpenses },
   } = useAppContext();
 
-  // Function to Open Expense Window
+  // Function to Open Expense Wndow
   const handleOpenExpenseWindow = () => {
     setOpenExpenseWindow(true);
   };
@@ -39,7 +39,7 @@ export default function H() {
   return (
     <nav className="flex justify-between items-center">
       <LogoSection />
-      <Searchbar />
+      {/* <Searchbar /> */}
       <div className="flex gap-3">
         <Button
           onClick={handleOpenExpenseWindow}
@@ -65,19 +65,19 @@ function LogoSection() {
   );
 }
 
-function Searchbar() {
-  return (
-    <div className="h-[46px] bg-slate-50 flex items-center text-sm rounded-md pl-3 gap-1 w-[300px] max-sm:w-[220px]">
-      <SearchOutlinedIcon className="text-slate-400" />
-      <input
-        type="text"
-        placeholder="Search an expense.."
-        aria-label="Search expenses"
-        className="bg-transparent outline-none w-full font-light"
-      />
-    </div>
-  );
-}
+// function Searchbar() {
+//   return (
+//     <div className="h-[46px] bg-slate-50 flex items-center text-sm text-black rounded-md pl-3 gap-1 w-[300px] max-sm:w-[220px]">
+//       <SearchOutlinedIcon className="text-slate-400" />
+//       <input
+//         type="text"
+//         placeholder="Search an expense.."
+//         aria-label="Search expenses"
+//         className="bg-transparent outline-none w-full font-light"
+//       />
+//     </div>
+//   );
+// }
 
 type ButtonProps = {
   onClick: () => void;
@@ -89,7 +89,7 @@ function Button({ onClick, text, icon }: ButtonProps) {
   return (
     <button
       onClick={onClick}
-      className="bg-purple-600 px-4 py-3 flex gap-1 text-sm rounded-md text-white items-center justify-center pr-[18px] max-sm:pr-3 hover:bg-purple-700"
+      className="bg-purple-600 px-4 py-3 flex gap-1 text-sm rounded-md text-black items-center justify-center pr-[18px] max-sm:pr-3 hover:bg-purple-700"
     >
       {icon && icon}
       <span>{text}</span>

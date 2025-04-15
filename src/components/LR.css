@@ -1,0 +1,118 @@
+body {
+    background-color: #fff; /* Default background for other pages */
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Apply GIF only for login and register pages */
+  body.login-page, body.register-page {
+    background: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzEwMXJ4eGFlYnR3bTA1NGVtcm5qdzd1NGMyYTI4N3o5eTU2OGxkciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/QBFrBgXNWBreesPaT6/giphy.gif') no-repeat center center/cover;
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+    padding-right:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  /* Common styles for both Login and Register containers */
+  .login-container, .register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background: linear-gradient(to right, #6a11cb, #2575fc); /* Gradient background */
+  }
+  
+  /* Login box styling */
+  .login-box, .register-box {
+    background-color: #fff;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title styling */
+  .login-title, .register-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Input group styling */
+  .input-group {
+    margin-bottom: 20px;
+  }
+  
+  .input-label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  .input-field:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
+  }
+  
+  /* Error and success message styling */
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .success-message {
+    color: green;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  /* Button styling */
+  .login-button, .register-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #6a11cb;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-button:hover, .register-button:hover {
+    background-color: #2575fc;
+  }
+  
+  /* Links for Login/Registration */
+  .register-link, .login-link {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .register-link-text, .login-link-text {
+    color: #f7b42c;
+    text-decoration: none;
+  }
+  
+  .register-link-text:hover, .login-link-text:hover {
+    text-decoration: underline;
+  }

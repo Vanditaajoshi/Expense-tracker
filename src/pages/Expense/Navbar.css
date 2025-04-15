@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.navbar {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* Sticky Navbar */
+.profile-dropdown {
+    @apply absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-50;
+  }
+  
+.navbar {
+  @apply sticky top-0 left-0 w-full bg-gray-800 text-white shadow-lg z-50;
+}
+
+.navbar-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.navbar-content {
+  @apply flex justify-between items-center h-16;
+}
+
+.navbar-logo {
+  @apply flex items-center space-x-2 text-lg font-semibold text-white;
+}
+
+.navbar-links {
+  @apply hidden sm:flex space-x-4;
+}
+
+.navbar-link {
+  @apply px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white;
+}
+
+.navbar-link.active {
+  @apply bg-gray-900 text-white;
+}
+
+.navbar-icons {
+  @apply flex items-center space-x-4;
+}
+
+.navbar-icon-btn {
+  @apply relative p-2 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800;
+}
+
+.navbar-menu-btn {
+  @apply sm:hidden p-2 rounded-md text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  @apply sm:hidden bg-gray-800 px-2 pt-2 pb-3 space-y-1;
+}
+
+.mobile-menu-item {
+  @apply block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white;
+}
+
+/* Prevent content from being hidden behind navbar */
+.main-container {
+  @apply flex flex-col h-screen pt-16;
+}

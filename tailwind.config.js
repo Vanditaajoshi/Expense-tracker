@@ -1,11 +1,14 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}"
-  ],
-  theme: {
-    extend: {},
+export const darkMode = "class";
+export const content = [
+  "./index.html",
+  "./src/**/*.{js,ts,jsx,tsx}"
+];
+export const theme = {
+  extend: {
+    fontFamily: {
+      poppins: ['Poppins', 'sans-serif'],
+    },
   },
-  plugins: [],
 };
+export const plugins = [];

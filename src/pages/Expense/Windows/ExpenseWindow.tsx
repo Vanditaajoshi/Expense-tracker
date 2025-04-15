@@ -82,7 +82,7 @@ function ExpenseInput({ value, setValue }: { value: string; setValue: (value: st
   return (
     <div>
       <label className="block text-sm text-slate-600">Expense Name</label>
-      <input value={value} onChange={(e) => setValue(e.target.value)} placeholder="Enter Expense Name..." className="w-full p-2 border rounded-md" />
+      <input value={value} onChange={(e) => setValue(e.target.value)} placeholder="Enter Expense Name..." className="w-full text-black p-2 border rounded-md" />
     </div>
   );
 }
@@ -91,7 +91,7 @@ function AmountInput({ value, setValue }: { value: string; setValue: (value: str
   return (
     <div>
       <label className="block text-sm text-slate-600">Amount</label>
-      <input type="number" value={value} onChange={(e) => setValue(e.target.value)} placeholder="Enter Amount..." className="w-full p-2 border rounded-md" />
+      <input type="number" value={value} onChange={(e) => setValue(e.target.value)} placeholder="Enter Amount..." className="w-full text-black p-2 border rounded-md" />
     </div>
   );
 }
@@ -100,14 +100,14 @@ function WalletDropdown({ selectedWallet, setSelectedWallet, selectedSubOption, 
   return (
     <div>
       <label className="block text-sm text-slate-600">Wallet</label>
-      <select value={selectedWallet} onChange={(e) => setSelectedWallet(e.target.value)} className="w-full p-2 border rounded-md">
+      <select value={selectedWallet} onChange={(e) => setSelectedWallet(e.target.value)} className="w-full text-black p-2 border rounded-md">
         {Object.keys(walletOptions).map((wallet) => (
           <option key={wallet}>{wallet}</option>
         ))}
       </select>
 
       {walletOptions[selectedWallet]?.length > 0 && (
-        <select value={selectedSubOption} onChange={(e) => setSelectedSubOption(e.target.value)} className="w-full p-2 border rounded-md mt-2">
+        <select value={selectedSubOption} onChange={(e) => setSelectedSubOption(e.target.value)} className="w-full text-black  p-2 border rounded-md mt-2">
           {walletOptions[selectedWallet].map((option: any) => (
             <option key={option}>{option}</option>
           ))}
@@ -120,7 +120,7 @@ function WalletDropdown({ selectedWallet, setSelectedWallet, selectedSubOption, 
 function Footer({ onSubmit, setOpenExpenseWindow }: { onSubmit: () => void; setOpenExpenseWindow: (value: boolean) => void }) {
   return (
     <div className="mt-6 flex justify-end gap-3">
-      <button onClick={() => setOpenExpenseWindow(false)} className="bg-slate-200 px-4 py-2 rounded-md text-sm">Cancel</button>
+      <button onClick={() => setOpenExpenseWindow(false)} className="bg-slate-500 px-4 py-2 rounded-md text-sm">Cancel</button>
       <button onClick={onSubmit} className="bg-purple-600 text-white px-4 py-2 rounded-md text-sm">Submit</button>
     </div>
   );
